@@ -4,11 +4,11 @@ description: Obtain the column(s) per groups
 
 # Groupby.col
 
-> danfo.Groupby.col(col\_names) \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/groupby.js#L104)]
+> danfo.Groupby.col(col_names) \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/aggregators/groupby.ts#L155)]
 
 | Parameters | Type  | Description    | Default |
 | ---------- | ----- | -------------- | ------- |
-| col\_names | Array | List of column |         |
+| col_names  | Array | List of column |         |
 
 Returns: Groupby Data structure
 
@@ -20,33 +20,33 @@ Obtain the column to perform group aggregate operation on
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data ={A: ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           B: ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           C: [1,3,2,4,5,2,6,7],
-           D: [3,2,4,1,5,6,7,8]
-        }
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let df = new dfd.DataFrame(data)
+let df = new dfd.DataFrame(data);
 
-
-let grp = df.groupby(["A"])
+let grp = df.groupby(["A"]);
 
 //select single column
-let grpColumnC = grp.col(["C"])
+let grpColumnC = grp.col(["C"]);
 
 // convert grouop internal data to dataFrame
-grpColumnC.apply(x=> x).print()
+grpColumnC.apply((x) => x).print();
 
 //select multiple column
-let grpColumnBD = grp.col(["B", "D"])
+let grpColumnBD = grp.col(["B", "D"]);
 
-grpColumnBD.apply(x=> x).print()
+grpColumnBD.apply((x) => x).print();
 ```
+
 {% endtab %}
 {% endtabs %}
 

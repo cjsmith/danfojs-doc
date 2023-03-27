@@ -4,36 +4,42 @@ description: Repeat the the character(s) in a string for a specified number of t
 
 # Series.str.repeat
 
-> danfo.Series.str.**repeat**(num, options)  \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/strings.js#L205)]
+> danfo.Series.str.**repeat**(num, options) \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/strings.ts#L469)]
 
-| Parameters | Type    | Description                                                     | Default                                                |
-| ---------- | ------- | --------------------------------------------------------------- | ------------------------------------------------------ |
-| num        | integer | the string to search for                                        | 1                                                      |
-| options    | Object  | **inplace**: Whether to perform the operation in-place or not.  | <p>{</p><p><strong>inplace</strong>: false</p><p>}</p> |
+| Parameters | Type    | Description                                                    | Default                                                |
+| ---------- | ------- | -------------------------------------------------------------- | ------------------------------------------------------ |
+| num        | integer | the string to search for                                       | 1                                                      |
+| options    | Object  | **inplace**: Whether to perform the operation in-place or not. | <p>{</p><p><strong>inplace</strong>: false</p><p>}</p> |
 
-**Returns:**  Series
+**Returns:** Series
 
 **Example**
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = ['a', 'b', 'c', 'd']
-let sf = new dfd.Series(data)
-sf.str.repeat(4).print()
+```javascript
+const dfd = require("danfojs-node");
+
+let data = ["a", "b", "c", "d"];
+let sf = new dfd.Series(data);
+sf.str.repeat(4).print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤══════════════════════╗
 ║   │ 0                    ║
@@ -47,5 +53,6 @@ sf.str.repeat(4).print()
 ║ 3 │ dddd                 ║
 ╚═══╧══════════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}

@@ -4,7 +4,7 @@ description: Joins two or more strings/arrays
 
 # Series.str.concat
 
-> danfo.Series.str.**concat**(other, position, options)   \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/strings.js#L80)]
+> danfo.Series.str.**concat**(other, position, options) \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/strings.ts#L196)]
 
 | Parameters | Type            | Description                                                                                                                                                                                  | Default                                                |
 | ---------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
@@ -20,24 +20,30 @@ Add the strings from an Array to the start of each of the String element in Seri
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = ['lower boy', 'CAPITALS', 'sentence', 'SwApCaSe']
-let data2 = ['XX', 'YY', 'BB', '01']
-let sf = new dfd.Series(data)
-sf.str.concat(data2,0).print()
+```javascript
+const dfd = require("danfojs-node");
+
+let data = ["lower boy", "CAPITALS", "sentence", "SwApCaSe"];
+let data2 = ["XX", "YY", "BB", "01"];
+let sf = new dfd.Series(data);
+sf.str.concat(data2, 0).print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤══════════════════════╗
 ║   │ 0                    ║
@@ -51,6 +57,7 @@ sf.str.concat(data2,0).print()
 ║ 3 │ 01SwApCaSe           ║
 ╚═══╧══════════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -58,24 +65,30 @@ Add the strings from an Array to the end of each of the String element in Series
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = ['lower boy', 'CAPITALS', 'sentence', 'SwApCaSe']
-let data2 = ['XX', 'YY', 'BB', '01']
-let sf = new dfd.Series(data)
-sf.str.concat(data2,1).print()
+```javascript
+const dfd = require("danfojs-node");
+
+let data = ["lower boy", "CAPITALS", "sentence", "SwApCaSe"];
+let data2 = ["XX", "YY", "BB", "01"];
+let sf = new dfd.Series(data);
+sf.str.concat(data2, 1).print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤══════════════════════╗
 ║   │ 0                    ║
@@ -89,6 +102,7 @@ sf.str.concat(data2,1).print()
 ║ 3 │ SwApCaSe01           ║
 ╚═══╧══════════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,24 +110,30 @@ Add a string to the start of each string element in a Series
 
 {% tabs %}
 {% tab title="Output" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = ['lower boy', 'CAPITALS', 'sentence', 'SwApCaSe']
-let data2 = ['XX', 'YY', 'BB', '01']
-let sf = new dfd.Series(data)
-sf.str.concat("pre",0).print()
+```javascript
+const dfd = require("danfojs-node");
+
+let data = ["lower boy", "CAPITALS", "sentence", "SwApCaSe"];
+let data2 = ["XX", "YY", "BB", "01"];
+let sf = new dfd.Series(data);
+sf.str.concat("pre", 0).print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤══════════════════════╗
 ║   │ 0                    ║
@@ -127,6 +147,7 @@ sf.str.concat("pre",0).print()
 ║ 3 │ preSwApCaSe          ║
 ╚═══╧══════════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -134,19 +155,24 @@ Add a string to the end of each string element in a series
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = ['lower boy', 'CAPITALS', 'sentence', 'SwApCaSe']
-let data2 = ['XX', 'YY', 'BB', '01']
-let sf = new dfd.Series(data)
-sf.str.concat("post",1).print()
+```javascript
+const dfd = require("danfojs-node");
+
+let data = ["lower boy", "CAPITALS", "sentence", "SwApCaSe"];
+let data2 = ["XX", "YY", "BB", "01"];
+let sf = new dfd.Series(data);
+sf.str.concat("post", 1).print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 

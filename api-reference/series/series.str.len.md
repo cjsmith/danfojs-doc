@@ -4,11 +4,11 @@ description: Obtain the length of each string element in a Series
 
 # Series.str.len
 
-> danfo.Series.str.**len**(options) \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/strings.js#L324)]
+> danfo.Series.str.**len**(options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/strings.ts#L746)]
 
-| Parameters | Type   | Description                                                     | Default                                                |
-| ---------- | ------ | --------------------------------------------------------------- | ------------------------------------------------------ |
-| options    | Object | **inplace**: Whether to perform the operation in-place or not.  | <p>{</p><p><strong>inplace</strong>: false</p><p>}</p> |
+| Parameters | Type   | Description                                                    | Default                                                |
+| ---------- | ------ | -------------------------------------------------------------- | ------------------------------------------------------ |
+| options    | Object | **inplace**: Whether to perform the operation in-place or not. | <p>{</p><p><strong>inplace</strong>: false</p><p>}</p> |
 
 **Examples**
 
@@ -16,23 +16,29 @@ Returns the length (number of character) of a string, and also return the length
 
 {% tabs %}
 {% tab title="JavaScript" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = ["dog", 5,"cat","fog","mug","animals"]
-let sf = new dfd.Series(data)
-sf.str.len().print()
+```javascript
+const dfd = require("danfojs-node");
+
+let data = ["dog", 5, "cat", "fog", "mug", "animals"];
+let sf = new dfd.Series(data);
+sf.str.len().print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤═══╗
 ║ 0 │ 3 ║
@@ -48,5 +54,6 @@ sf.str.len().print()
 ║ 5 │ 7 ║
 ╚═══╧═══╝
 ```
+
 {% endtab %}
 {% endtabs %}

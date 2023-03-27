@@ -4,7 +4,7 @@ description: Remove missing values from Series
 
 # Series.dropNa
 
-> danfo.Series.dropNa(options) \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/series.js#L931)]
+> danfo.Series.dropNa(options) \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/series.ts#L1586)]
 
 | Parameters | Type   | Description                                                                                    | Default                            |
 | ---------- | ------ | ---------------------------------------------------------------------------------------------- | ---------------------------------- |
@@ -14,20 +14,23 @@ description: Remove missing values from Series
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data1 = [10, 45, undefined, 10, 23, 20, null, 10]
-let sf = new dfd.Series(data1)
-let sf_rep = sf.dropNa()
+let data1 = [10, 45, undefined, 10, 23, 20, null, 10];
+let sf = new dfd.Series(data1);
+let sf_rep = sf.dropNa();
 
-sf_rep.print()
+sf_rep.print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤════╗
 ║ 0 │ 10 ║
@@ -43,6 +46,7 @@ sf_rep.print()
 ║ 7 │ 10 ║
 ╚═══╧════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -50,20 +54,23 @@ sf_rep.print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data1 = [10, 45, undefined, 10, 23, 20, undefined, 10]
-let sf = new dfd.Series(data1)
-sf.dropNa({inplace:true})
+let data1 = [10, 45, undefined, 10, 23, 20, undefined, 10];
+let sf = new dfd.Series(data1);
+sf.dropNa({ inplace: true });
 
-sf.print()
+sf.print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤════╗
 ║ 0 │ 10 ║
@@ -79,5 +86,6 @@ sf.print()
 ║ 7 │ 10 ║
 ╚═══╧════╝
 ```
+
 {% endtab %}
 {% endtabs %}

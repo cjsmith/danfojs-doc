@@ -6,7 +6,7 @@ description: >-
 
 # DataFrame.setIndex
 
-danfo.DataFrame.setIndex(options) \[[source](https://github.com/opensource9ja/danfojs/blob/cf5c7ae3a009458e61eedd18d9c9b5b6b10d5276/danfojs/src/core/frame.js#L125)]
+danfo.DataFrame.setIndex(options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L2418)]
 
 | Parameters | Type   | Description                                                                                                                                                                                                                                                                                                                                                             | Default                                  |
 | ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
@@ -18,30 +18,33 @@ danfo.DataFrame.setIndex(options) \[[source](https://github.com/opensource9ja/da
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = { "A": [-20, 30, 47.3],
-             "B": [34, 5, 6],
-             "C": [20, 3, 30] }
+let data = { A: [-20, 30, 47.3], B: [34, 5, 6], C: [20, 3, 30] };
 
+let df = new dfd.DataFrame(data, { index: ["a", "b", "c"] });
+df.print();
 
-let df = new dfd.DataFrame(data, {index: ["a", "b", "c"]})
-df.print()
-
-df.setIndex({column: "A", inplace: true})
-df.print()
+df.setIndex({ column: "A", inplace: true });
+df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -63,6 +66,7 @@ df.print()
 ║ 47.3       │ 47.3              │ 6                 │ 30                ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -70,30 +74,33 @@ df.print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = { "A": [-20, 30, 47.3],
-             "B": [34, 5, 6],
-             "C": [20, 3, 30] }
+let data = { A: [-20, 30, 47.3], B: [34, 5, 6], C: [20, 3, 30] };
 
+let df = new dfd.DataFrame(data, { index: ["a", "b", "c"] });
+df.print();
 
-let df = new dfd.DataFrame(data, {index: ["a", "b", "c"]})
-df.print()
-
-df.setIndex({column: "A", drop: true, inplace: true})
-df.print()
+df.setIndex({ column: "A", drop: true, inplace: true });
+df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -115,6 +122,7 @@ df.print()
 ║ 47.3       │ 6                 │ 30                ║
 ╚════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -122,31 +130,34 @@ df.print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = { "A": [-20, 30, 47.3],
-             "B": [34, -5, 6],
-             "C": [20, 3, 30] }
+let data = { A: [-20, 30, 47.3], B: [34, -5, 6], C: [20, 3, 30] };
 
+let df = new dfd.DataFrame(data);
+df.print();
 
-let df = new dfd.DataFrame(data)
-df.print()
-
-let new_index = ["a", "b", "c"]
-df.setIndex({index: new_index, inplace: true})
-df.print()
+let new_index = ["a", "b", "c"];
+df.setIndex({ index: new_index, inplace: true });
+df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -168,7 +179,8 @@ df.print()
 ║ c          │ 47.3              │ 6                 │ 30                ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
-**Note:** To reset an index to the default values, use the [DataFrame.resetIndex](dataframe.reset\_index.md).
+**Note:** To reset an index to the default values, use the [DataFrame.resetIndex](dataframe.reset_index.md).

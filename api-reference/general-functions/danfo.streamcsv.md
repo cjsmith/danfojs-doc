@@ -20,26 +20,29 @@ The **streamCSV** function streams a CSV file from a local or remote location in
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
-const path = require("path")
+const dfd = require("danfojs-node");
+const path = require("path");
 
 const filePath = path.join(process.cwd(), "raw_data", "titanic.csv");
 
 dfd.streamCSV(filePath, (df) => {
-    if (df) {
-        // Do any processing here
-        df.print();
-    }
+  if (df) {
+    // Do any processing here
+    df.print();
+  }
 });
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
-//Showing few rows 
+//Showing few rows
 ...
 
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
@@ -56,6 +59,7 @@ dfd.streamCSV(filePath, (df) => {
 
 ...
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -63,27 +67,31 @@ dfd.streamCSV(filePath, (df) => {
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-const remoteFile = "https://raw.githubusercontent.com/opensource9ja/danfojs/dev/danfojs-node/tests/samples/titanic.csv"
+```javascript
+const dfd = require("danfojs-node");
+
+const remoteFile =
+  "https://raw.githubusercontent.com/javascriptdata/danfojs/dev/danfojs-node/tests/samples/titanic.csv";
 
 const callback = (df) => {
-    //Perform any processing here
-    if (df) {
-        df.print();
-    }
-}
+  //Perform any processing here
+  if (df) {
+    df.print();
+  }
+};
 
-dfd.streamCSV(remoteFile, callback, { header: true })
+dfd.streamCSV(remoteFile, callback, { header: true });
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
-//Showing a few rows 
+//Showing a few rows
 ...
 
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
@@ -100,5 +108,6 @@ dfd.streamCSV(remoteFile, callback, { header: true })
 
 ...
 ```
+
 {% endtab %}
 {% endtabs %}

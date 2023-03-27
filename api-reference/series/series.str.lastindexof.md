@@ -6,12 +6,12 @@ description: >-
 
 # Series.str.lastIndexOf
 
-danfo.Series.str.lastIndexOf(str, options)   \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/strings.js#L175)]
+danfo.Series.str.lastIndexOf(str, options) \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/strings.ts#L397)]
 
-| Parameters | Type   | Description                                                     | Default                                                |
-| ---------- | ------ | --------------------------------------------------------------- | ------------------------------------------------------ |
-| str        | string | the string to search for                                        | ""                                                     |
-| options    | Object | **inplace**: Whether to perform the operation in-place or not.  | <p>{</p><p><strong>inplace</strong>: false</p><p>}</p> |
+| Parameters | Type   | Description                                                    | Default                                                |
+| ---------- | ------ | -------------------------------------------------------------- | ------------------------------------------------------ |
+| str        | string | the string to search for                                       | ""                                                     |
+| options    | Object | **inplace**: Whether to perform the operation in-place or not. | <p>{</p><p><strong>inplace</strong>: false</p><p>}</p> |
 
 **Returns**: Series
 
@@ -19,23 +19,29 @@ danfo.Series.str.lastIndexOf(str, options)   \[[source](https://github.com/opens
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = ['lower', 'CAPITALS', 'this is a sentence', 'SwApCaSe']
-let sf = new dfd.Series(data)
-sf.str.lastIndexOf("r").print()
+```javascript
+const dfd = require("danfojs-node");
+
+let data = ["lower", "CAPITALS", "this is a sentence", "SwApCaSe"];
+let sf = new dfd.Series(data);
+sf.str.lastIndexOf("r").print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤══════════════════════╗
 ║   │ 0                    ║
@@ -49,6 +55,6 @@ sf.str.lastIndexOf("r").print()
 ║ 3 │ -1                   ║
 ╚═══╧══════════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
-

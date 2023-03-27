@@ -20,24 +20,27 @@ The **convertFunctionTotransformer** takes a function and converts it to a Nodej
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
 /*
  * A simple function that takes each row of a DataFrame and splits the
- * name field. 
-*/
+ * name field.
+ */
 const renamer = (dfRow: DataFrame) => {
-    const dfModified = dfRow["Names"].map((name) => name.split(",")[0])
-    return dfModified
-}
+  const dfModified = dfRow["Names"].map((name) => name.split(",")[0]);
+  return dfModified;
+};
 
-const transformer = dfd.convertFunctionTotransformer(renamer)
-console.log(transformer)
+const transformer = dfd.convertFunctionTotransformer(renamer);
+console.log(transformer);
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```markup
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +49,7 @@ console.log(transformer)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!--danfojs CDN -->
-    <script src="https://cdn.jsdelivr.net/gh/opensource9ja/danfojs@latest/lib/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/javascriptdata/danfojs@latest/lib/bundle.js"></script>
     <title>Document</title>
 </head>
 
@@ -56,17 +59,19 @@ console.log(transformer)
 
         let data = new dfd.date_range({"start":'1/1/2018',period:5, freq:'M'})
         console.log(data);
-         
+
     </script>
 </body>
 
 </html>
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 Transform {
   _readableState: ReadableState {
@@ -99,5 +104,6 @@ Transform {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}

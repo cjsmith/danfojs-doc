@@ -10,22 +10,22 @@ description: >-
 
 **Table of contents:**
 
-* **TL:DR**
-* Where to start?
-* Working with the code
-  * Version control, Git, and GitHub
-  * Getting started with Git
-  * Forking
-  * Creating a development environment
-* Documentation Guidelines
-* Writing tests
-  * Using mocha
-  * Running the test suite
-* Contributing your changes to danfojs
-  * Committing your code
-  * Pushing your changes
-  * Review your code and finally, make the pull request
-* Danfojs internal (Brief)
+- **TL:DR**
+- Where to start?
+- Working with the code
+  - Version control, Git, and GitHub
+  - Getting started with Git
+  - Forking
+  - Creating a development environment
+- Documentation Guidelines
+- Writing tests
+  - Using mocha
+  - Running the test suite
+- Contributing your changes to danfojs
+  - Committing your code
+  - Pushing your changes
+  - Review your code and finally, make the pull request
+- Danfojs internal (Brief)
 
 ## TL:DR
 
@@ -57,7 +57,7 @@ Danfojs code is hosted on GitHub. To contribute you will need to sign up for a f
 
 Some great resources for learning Git:
 
-* Official [GitHub pages](http://help.github.com).
+- Official [GitHub pages](http://help.github.com).
 
 ### **Getting started with Git**
 
@@ -65,7 +65,7 @@ Find [Instructions](http://help.github.com/set-up-git-redirect) for installing g
 
 ## **Forking the Danfojs repo**
 
-You will need your own fork to work on the code. Go to the danfojs [project page](https://github.com/opensource9ja/danfojs) and hit the Fork button.
+You will need your own fork to work on the code. Go to the danfojs [project page](https://github.com/javascriptdata/danfojs) and hit the Fork button.
 
 Next, you will clone your fork to your local machine:
 
@@ -79,8 +79,6 @@ This creates the directory danfojs and connects your repository to the upstream 
 Some Javascript features are supported both in the browser and node environment, and it is recommended to add features in the **danfojs-base** folder.&#x20;
 
 For features that work differently or only in a specific environment, you can add them in the corresponding danfojs-node or danfojs-browser folder.&#x20;
-
-
 
 ## **Creating a development environment**
 
@@ -126,7 +124,7 @@ And for functions that contain more than two arguments, a keyword argument can b
  *                      axis : int {0 or 1},
  *                      by_column : String {name of a column},
  *                    }
- * @returns DataFrame 
+ * @returns DataFrame
  */
 function join_df(kwargs){
         ........
@@ -145,20 +143,19 @@ Below is the general Framework to write a test for each module.
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
-import { assert } from "chai"
-import { DataFrame } from '../../src/core/frame'
+import { assert } from "chai";
+import { DataFrame } from "../../src/core/frame";
 
-describe("Name of the class|module", function(){
- 
-  it("name of the methods| expected result",function(){
-    
-       //write your test code here
-       //use assert.{proprty} to test your code
-   })
-
+describe("Name of the class|module", function () {
+  it("name of the methods| expected result", function () {
+    //write your test code here
+    //use assert.{proprty} to test your code
+  });
 });
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -169,20 +166,20 @@ import { assert } from "chai"
 import { DataFrame } from '../../src/core/frame'
 
 describe("Name of the class|module", function(){
- 
+
  describe("method name 1", function(){
- 
+
    it("expected result",function(){
-     
+
         //write your test code here
         //use assert.{proprty} to test your code
     })
   })
-  
+
   describe("method name 2", function(){
- 
+
    it("expected result",function(){
-     
+
         //write your test code here
         //use assert.{proprty} to test your code
     })
@@ -191,27 +188,27 @@ describe("Name of the class|module", function(){
 });
 ```
 
-**Example**: Let write a test, to test if the values in a dataframe are off a certain length. Assuming the method to obtain length is values\_len()
+**Example**: Let write a test, to test if the values in a dataframe are off a certain length. Assuming the method to obtain length is values_len()
 
 ```javascript
 import { assert } from "chai"
 import { DataFrame } from '../../src/core/frame'
 
 describe("DataFrame", function(){
-    
+
   describe("value_len", function(){
- 
+
    it("check dataframe length",function(){
-     
+
        let data = [[1,2],[4,5]]
        let columns = ["A","B"]
        let df = new DataFrame(data,{columns: columns})
-       
+
        let expected_result = 2
-       
+
        assert.deepEqual(sf.value_len(), expected_result))
-       
-       
+
+
     })
   })
 
@@ -287,6 +284,3 @@ This request then goes to the repository maintainers, and they will review the c
 In other to contribute to the code base of danfojs, there are some functions and properties provided to make implementation easy.
 
 The folder **danfojs-base** contains the bulk of Danfojs modules, and these are simply extended or exported by the **danfojs-browser** and **danfojs-node** folders. The base class for Frames and Series is the NdFrame class which is found in the `danfojs-base/core/generic` file.&#x20;
-
-
-

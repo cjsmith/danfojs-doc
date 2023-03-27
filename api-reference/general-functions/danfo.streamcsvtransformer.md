@@ -19,11 +19,11 @@ danfo.**streamCsvTransformer**(func)
 
 > A promise that resolves when the pipeline transformation is complete.
 
-The streamCsvTransformer can be used to [incrementally transform](https://en.wikipedia.org/wiki/Stream\_processing) a CSV file. This is done by:
+The streamCsvTransformer can be used to [incrementally transform](https://en.wikipedia.org/wiki/Stream_processing) a CSV file. This is done by:
 
-* Streaming a CSV file from a local or **remote** path.
-* Passing each corresponding row as a DataFrame to the specified transformer function.
-* Writing the result to an output stream.
+- Streaming a CSV file from a local or **remote** path.
+- Passing each corresponding row as a DataFrame to the specified transformer function.
+- Writing the result to an output stream.
 
 ## **Stream processing a local file**
 
@@ -33,34 +33,41 @@ The transformer takes each `Name` column, splits the person's title, and creates
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
 import { DataFrame, Series, streamCsvTransformer } from "danfojs-node";
-import path from "path"
+import path from "path";
 
 const inputFilePath = path.join(process.cwd(), "raw_data", "titanic.csv");
-const outputFilePath = path.join(process.cwd(), "raw_data", "titanicOutLocal.csv");
+const outputFilePath = path.join(
+  process.cwd(),
+  "raw_data",
+  "titanicOutLocal.csv"
+);
 
 /**
  * A simple function that takes a DataFrame, and transforms the Name column.
-* */
+ * */
 const transformer = (df) => {
-    const titles = df["Name"].map((name) => name.split(".")[0]);
-    const names = df["Name"].map((name) => name.split(".")[1]);
-    df["Name"] = names
-    df.addColumn("titles", titles, { inplace: true })
-    return df
-}
+  const titles = df["Name"].map((name) => name.split(".")[0]);
+  const names = df["Name"].map((name) => name.split(".")[1]);
+  df["Name"] = names;
+  df.addColumn("titles", titles, { inplace: true });
+  return df;
+};
 
 dfd.streamCsvTransformer(inputFilePath, transformer, {
-    outputFilePath,
-    inputStreamOptions: { header: false }
-})
+  outputFilePath,
+  inputStreamOptions: { header: false },
+});
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 //initial head of titanic.csv before transforming
 
@@ -77,6 +84,7 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked,
 2,1,1, John Bradley (Florence Briggs Thayer),female,38,1,0,PC 17599,71.2833,C85,C,Cumings, Mrs
 3,1,3, Laina,female,26,0,0,STON/O2. 3101282,7.925,,S,Heikkinen, Miss
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -88,30 +96,36 @@ The transformer takes each `Name` column, splits the person's title, and creates
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
 import { DataFrame, Series, streamCsvTransformer } from "danfojs-node";
-import path from "path"
+import path from "path";
 
-const inputFilePath = "https://raw.githubusercontent.com/opensource9ja/danfojs/dev/danfojs-node/tests/samples/titanic.csv"
-const outputFilePath = path.join(process.cwd(), "raw_data", "titanicOutRemote.csv");
-
+const inputFilePath =
+  "https://raw.githubusercontent.com/javascriptdata/danfojs/dev/danfojs-node/tests/samples/titanic.csv";
+const outputFilePath = path.join(
+  process.cwd(),
+  "raw_data",
+  "titanicOutRemote.csv"
+);
 
 /**
  * A simple function that takes a DataFrame, and transforms the Name column.
-* */
+ * */
 const transformer = (df) => {
-    const titles = df["Name"].map((name) => name.split(".")[0]);
-    const names = df["Name"].map((name) => name.split(".")[1]);
-    df["Name"] = names
-    df.addColumn("titles", titles, { inplace: true })
-    return df
-}
+  const titles = df["Name"].map((name) => name.split(".")[0]);
+  const names = df["Name"].map((name) => name.split(".")[1]);
+  df["Name"] = names;
+  df.addColumn("titles", titles, { inplace: true });
+  return df;
+};
 
 dfd.streamCsvTransformer(inputFilePath, transformer, {
-    outputFilePath,
-    inputStreamOptions: { header: false }
-})
+  outputFilePath,
+  inputStreamOptions: { header: false },
+});
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -123,57 +137,58 @@ In the example below, we add a custom writer that logs each row. You can extend 
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require('danfojs-node-nightly')
-const path = require("path")
-const stream = require("stream")
 
-const inputFilePath = "https://raw.githubusercontent.com/opensource9ja/danfojs/dev/danfojs-node/tests/samples/titanic.csv"
+```javascript
+const dfd = require("danfojs-node-nightly");
+const path = require("path");
+const stream = require("stream");
+
+const inputFilePath =
+  "https://raw.githubusercontent.com/javascriptdata/danfojs/dev/danfojs-node/tests/samples/titanic.csv";
 
 const transformer = (df) => {
-    const titles = df["Name"].map((name) => name.split(".")[0]);
-    const names = df["Name"].map((name) => name.split(".")[1]);
-    df["Name"] = names
-    df.addColumn("titles", titles, { inplace: true })
-    return df
-}
-let count = 0
+  const titles = df["Name"].map((name) => name.split(".")[0]);
+  const names = df["Name"].map((name) => name.split(".")[1]);
+  df["Name"] = names;
+  df.addColumn("titles", titles, { inplace: true });
+  return df;
+};
+let count = 0;
 
 const customWriter = function () {
-    const csvOutputStream = new stream.Writable({ objectMode: true })
-    csvOutputStream._write = (chunk, encoding, callback) => {
-        //Do anything here. For example you can write to online storage DB
-        console.log("Chunk written: " + chunk) // Eah chunk is a row DataFrame
-        count += 1
-        callback()
+  const csvOutputStream = new stream.Writable({ objectMode: true });
+  csvOutputStream._write = (chunk, encoding, callback) => {
+    //Do anything here. For example you can write to online storage DB
+    console.log("Chunk written: " + chunk); // Eah chunk is a row DataFrame
+    count += 1;
+    callback();
+  };
+  return csvOutputStream;
+};
 
-    }
-    return csvOutputStream
-}
-
-dfd.streamCsvTransformer(
-    inputFilePath,
-    transformer,
-    {
-        customCSVStreamWriter: customWriter,
-        inputStreamOptions: { header: true }
-    })
+dfd.streamCsvTransformer(inputFilePath, transformer, {
+  customCSVStreamWriter: customWriter,
+  inputStreamOptions: { header: true },
+});
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 //Showing the last log
 ...
 
-Chunk written: 
+Chunk written:
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ Survived          │ Pclass            │ Name              │ Sex               │ Age               │ Siblings/Spouse…  │ Parents/Childre…  │ Fare              │ titles            ║
 ╟────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╢
 ║ 884        │ 0                 │ 3                 │  Patrick Dooley   │ male              │ 32                │ 0                 │ 0                 │ 7.75              │ Mr                ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}

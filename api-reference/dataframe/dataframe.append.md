@@ -4,7 +4,7 @@ description: Adds new row to the end of a DataFrame
 
 # DataFrame.append
 
-danfo.DataFrame.**append**(values, index, options) \[[source](https://github.com/opensource9ja/danfojs/blob/2696f1d8420dd364464aae7c5c175c6cd0ef4c93/danfojs/src/core/frame.js#L2059)]
+danfo.DataFrame.**append**(values, index, options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L3130)]
 
 | Parameters | Type                       | Description                                                                                                                                      | Default                                                 |
 | ---------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
@@ -18,27 +18,35 @@ danfo.DataFrame.**append**(values, index, options) \[[source](https://github.com
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-let data = [[0, 2, 4, "b"],
-            [360, 180, 360, "a"],
-            [2, 4, 6, "c"]]
+let data = [
+  [0, 2, 4, "b"],
+  [360, 180, 360, "a"],
+  [2, 4, 6, "c"],
+];
 
-let df = new dfd.DataFrame(data)
-df.print()
+let df = new dfd.DataFrame(data);
+df.print();
 
-let new_df = df.append([[20, 40, 60, "d"]], [3])
-new_df.print()
+let new_df = df.append([[20, 40, 60, "d"]], [3]);
+new_df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ 0                 │ 1                 │ 2                 │ 3                 ║
@@ -63,7 +71,8 @@ new_df.print()
 ║ 3 │ 20                │ 40                │ 60                │ d                 ║
 ╚═══╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
-***
+---

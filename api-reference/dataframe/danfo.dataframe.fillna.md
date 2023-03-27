@@ -6,7 +6,7 @@ description: >-
 
 # DataFrame.fillNa
 
-danfo.DataFrame.fillNa(values, options) \[[source](https://github.com/opensource9ja/danfojs/blob/3398c2f540c16ac95599a05b6f2db4eff8a258c9/danfojs/src/core/frame.js#L1235)]
+danfo.DataFrame.fillNa(values, options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L2095)]
 
 | Parameters | Type            | Description                                                                                                                                                                                                                   | Default          |
 | ---------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
@@ -21,32 +21,38 @@ Missing values are NaN, undefined or null values
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
 let data = {
-    "Name": ["Apples", "Mango", "Banana", undefined],
-    "Count": [NaN, 5, NaN, 10],
-    "Price": [200, 300, 40, 250]
-}
+  Name: ["Apples", "Mango", "Banana", undefined],
+  Count: [NaN, 5, NaN, 10],
+  Price: [200, 300, 40, 250],
+};
 
-let df = new dfd.DataFrame(data)
-df.print()
+let df = new dfd.DataFrame(data);
+df.print();
 
-let values = ["Apples", df["Count"].mean()]
-let df_filled = df.fillNa(values, { columns: ["Name", "Count"] })
-df_filled.print()
+let values = ["Apples", df["Count"].mean()];
+let df_filled = df.fillNa(values, { columns: ["Name", "Count"] });
+df_filled.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ Name              │ Count             │ Price             ║
@@ -72,6 +78,7 @@ df_filled.print()
 ║ 3          │ Apples            │ 10                │ 250               ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -79,30 +86,36 @@ df_filled.print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
 let data = {
-    "Name": ["Apples", "Mango", "Banana", undefined],
-    "Count": [NaN, 5, NaN, 10],
-    "Price": [200, 300, 40, 250]
-}
+  Name: ["Apples", "Mango", "Banana", undefined],
+  Count: [NaN, 5, NaN, 10],
+  Price: [200, 300, 40, 250],
+};
 
-let df = new dfd.DataFrame(data)
-let df_filled = df.fillNa("Apples")
+let df = new dfd.DataFrame(data);
+let df_filled = df.fillNa("Apples");
 
-df_filled.print()
+df_filled.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ Name              │ Count             │ Price             ║
@@ -116,6 +129,7 @@ df_filled.print()
 ║ 3 │ Apples            │ 10                │ 250               ║
 ╚═══╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -123,32 +137,38 @@ df_filled.print()
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
-let data = {
-    "Name": ["Apples", "Mango", "Banana", undefined],
-    "Count": [NaN, 5, NaN, 10],
-    "Price": [200, 300, 40, 250]
-}
 
-let df = new dfd.DataFrame(data)
-let values = ["Apples", df["Count"].mean()]
+```javascript
+const dfd = require("danfojs-node");
+let data = {
+  Name: ["Apples", "Mango", "Banana", undefined],
+  Count: [NaN, 5, NaN, 10],
+  Price: [200, 300, 40, 250],
+};
+
+let df = new dfd.DataFrame(data);
+let values = ["Apples", df["Count"].mean()];
 df.fillNa(values, {
-    columns: ["Name", "Count"],
-    inplace: true
-})
-df.print()
+  columns: ["Name", "Count"],
+  inplace: true,
+});
+df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ Name              │ Count             │ Price             ║
@@ -162,5 +182,6 @@ df.print()
 ║ 3 │ Apples            │ 10                │ 250               ║
 ╚═══╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}

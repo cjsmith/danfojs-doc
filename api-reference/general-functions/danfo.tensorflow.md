@@ -14,16 +14,22 @@ danfo.**tensorflow**
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
-const tf = dfd.tensorflow
 
-let tensor_arr = tf.tensor2d([[12, 34, 2.2, 2], [30, 30, 2.1, 7]])
-console.log(tensor_arr)
+```javascript
+const dfd = require("danfojs-node");
+const tf = dfd.tensorflow;
+
+let tensor_arr = tf.tensor2d([
+  [12, 34, 2.2, 2],
+  [30, 30, 2.1, 7],
+]);
+console.log(tensor_arr);
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```markup
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +38,7 @@ console.log(tensor_arr)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!--danfojs CDN -->
-    <script src="https://cdn.jsdelivr.net/gh/opensource9ja/danfojs@latest/lib/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/javascriptdata/danfojs@latest/lib/bundle.js"></script>
     <title>Document</title>
 </head>
 
@@ -42,17 +48,19 @@ console.log(tensor_arr)
         const tf = dfd.tensorflow
         let tensor_arr = tf.tensor2d([[12, 34, 2.2, 2], [30, 30, 2.1, 7]])
         console.log(tensor_arr)
-         
+
     </script>
 </body>
 
 </html>
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 Tensor {
   kept: false,
@@ -66,5 +74,6 @@ Tensor {
   rankType: '2'
 }
 ```
+
 {% endtab %}
 {% endtabs %}

@@ -4,7 +4,7 @@ description: Obtain the numerical representation of the week day.
 
 # Series.dt.dayOfWeek
 
-> danfo.Series.dt.dayOfWeek() \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/timeseries.js#L216)]
+> danfo.Series.dt.dayOfWeek() \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/datetime.ts#L83)]
 
 **Parameters**: None
 
@@ -14,21 +14,26 @@ description: Obtain the numerical representation of the week day.
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = new dfd.dateRange({"start":'2016-12-31', "end":'2018-01-08'})
-let sf = new dfd.Series(data)
+```javascript
+const dfd = require("danfojs-node");
+
+let data = new dfd.dateRange({ start: "2016-12-31", end: "2018-01-08" });
+let sf = new dfd.Series(data);
 //print series
-sf.print()
+sf.print();
 //print days of the week
-sf.dt.dayOfWeek().print()
+sf.dt.dayOfWeek().print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 

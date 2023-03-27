@@ -4,7 +4,7 @@ description: Returns the number of unique elements in a column, across the speci
 
 # DataFrame.nUnique
 
-danfo.DataFrame.nUnique(axis) \[[source](https://github.com/opensource9ja/danfojs/blob/f84d7f53f2b0639e464f9483fb5cea969ad913d6/danfojs/src/core/frame.js#L1975)]
+danfo.DataFrame.nUnique(axis) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L2905)]
 
 | Parameters | Type | Description                           | Default |
 | ---------- | ---- | ------------------------------------- | ------- |
@@ -16,27 +16,35 @@ danfo.DataFrame.nUnique(axis) \[[source](https://github.com/opensource9ja/danfoj
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = { "A": [-20, 30, 47.3, -20] ,
-             "B": [34, -4, 5, 6] ,
-             "C": [20, 20, 30, 30],
-             "D": ["a", "b", "c", "c"] }
+let data = {
+  A: [-20, 30, 47.3, -20],
+  B: [34, -4, 5, 6],
+  C: [20, 20, 30, 30],
+  D: ["a", "b", "c", "c"],
+};
 
-let df = new dfd.DataFrame(data)
-df.nunique().print()
+let df = new dfd.DataFrame(data);
+df.nunique().print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤═══╗
 ║ 0 │ 4 ║
@@ -48,6 +56,7 @@ df.nunique().print()
 ║ 3 │ 4 ║
 ╚═══╧═══╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -55,27 +64,35 @@ df.nunique().print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = { "A": [-20, 30, 47.3, -20] ,
-             "B": [34, -4, 5, 6] ,
-             "C": [20, 20, 30, 30],
-             "D": ["a", "b", "c", "c"] }
+let data = {
+  A: [-20, 30, 47.3, -20],
+  B: [34, -4, 5, 6],
+  C: [20, 20, 30, 30],
+  D: ["a", "b", "c", "c"],
+};
 
-let df = new dfd.DataFrame(data)
-df.nUnique(axis=0).print()
+let df = new dfd.DataFrame(data);
+df.nUnique((axis = 0)).print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤═══╗
 ║ A │ 3 ║
@@ -87,6 +104,7 @@ df.nUnique(axis=0).print()
 ║ D │ 3 ║
 ╚═══╧═══╝
 ```
+
 {% endtab %}
 {% endtabs %}
 

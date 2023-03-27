@@ -4,7 +4,7 @@ description: obtain the month name in a Time Series
 
 # Series.dt.monthName
 
-> danfo.Series.dt.monthName() \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/timeseries.js#L241)]
+> danfo.Series.dt.monthName() \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/datetime.ts#L127)]
 
 **Parameters**: None
 
@@ -14,26 +14,32 @@ description: obtain the month name in a Time Series
 
 {% tabs %}
 {% tab title="Output" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = new dfd.date_range({"start":'2018-01', freq:'M', period:3})
-let sf = new dfd.Series(data)
+```javascript
+const dfd = require("danfojs-node");
+
+let data = new dfd.date_range({ start: "2018-01", freq: "M", period: 3 });
+let sf = new dfd.Series(data);
 //print series
-sf.print()
+sf.print();
 //print month names
-sf.dt.monthName().print()
+sf.dt.monthName().print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤══════════════════════╗
 ║ 0 │ 1/1/2018, 1:00:00 AM ║
@@ -51,5 +57,6 @@ sf.dt.monthName().print()
 ║ 2 │ Mar ║
 ╚═══╧═════╝
 ```
+
 {% endtab %}
 {% endtabs %}

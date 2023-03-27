@@ -4,7 +4,7 @@ description: One-dimensional ndarray with axis labels (including time series).
 
 # Series
 
-> `Series`(data, {**columns:** \[ Array ], **dtypes:** \[ Array ], **index:** \[Array]}) \[[source](https://github.com/opensource9ja/danfojs/blob/3398c2f540c16ac95599a05b6f2db4eff8a258c9/danfojs/src/core/series.js#L28)]
+> `Series`(data, {**columns:** \[ Array ], **dtypes:** \[ Array ], **index:** \[Array]}) \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/series.ts#L50)]
 
 ### Attributes
 
@@ -27,10 +27,10 @@ description: One-dimensional ndarray with axis labels (including time series).
 
 ### Indexing, iteration
 
-|                                   |                                                                    |
-| --------------------------------- | ------------------------------------------------------------------ |
-| ``[`Series.loc`](series.loc.md)`` | Access a group of rows and columns by label(s) or a boolean array. |
-| [`Series.iloc`](series.iloc.md)   | Purely integer-location based indexing for selection by position.  |
+|                                     |                                                                    |
+| ----------------------------------- | ------------------------------------------------------------------ |
+| `` [`Series.loc`](series.loc.md) `` | Access a group of rows and columns by label(s) or a boolean array. |
+| [`Series.iloc`](series.iloc.md)     | Purely integer-location based indexing for selection by position.  |
 
 ### Binary operator functions
 
@@ -76,17 +76,17 @@ description: One-dimensional ndarray with axis labels (including time series).
 | [`Series.var`](series.var.md)                               | Return unbiased variance over requested axis.                    |
 | [`Series.unique`](series.unique.md)                         | Return unique values of Series object.                           |
 | [`Series.nUnique`](series.nunique.md)                       | Return number of unique elements in the object.                  |
-| [`Series.valueCounts`](series.value\_counts.md)             | Return a Series containing counts of unique values.              |
+| [`Series.valueCounts`](series.value_counts.md)              | Return a Series containing counts of unique values.              |
 
 ### Reindexing / selection / label manipulation
 
-|                                                       |                                                          |
-| ----------------------------------------------------- | -------------------------------------------------------- |
-| [`Series.dropDuplicates`](series.drop\_duplicates.md) | Return Series with duplicate values removed.             |
-| [`Series.head`](series.head.md)                       | Return the first n rows.                                 |
-| [`Series.resetIndex`](series.reset\_index.md)         | Generate a new DataFrame or Series with the index reset. |
-| [`Series.sample`](series.sample.md)                   | Return a random sample of items from an axis of object.  |
-| [`Series.tail`](series.tail.md)                       | Return the last n rows.                                  |
+|                                                      |                                                          |
+| ---------------------------------------------------- | -------------------------------------------------------- |
+| [`Series.dropDuplicates`](series.drop_duplicates.md) | Return Series with duplicate values removed.             |
+| [`Series.head`](series.head.md)                      | Return the first n rows.                                 |
+| [`Series.resetIndex`](series.reset_index.md)         | Generate a new DataFrame or Series with the index reset. |
+| [`Series.sample`](series.sample.md)                  | Return a random sample of items from an axis of object.  |
+| [`Series.tail`](series.tail.md)                      | Return the last n rows.                                  |
 
 ### Missing data handling
 
@@ -95,7 +95,7 @@ description: One-dimensional ndarray with axis labels (including time series).
 | [`Series.droNa`](series.dropna.md)    | Return a new Series with missing values removed. |
 | [`Series.fillNa`](series.fillna.md)   | Fill NaN values using the specified method.      |
 | [`Series.isNa`](series.isna.md)       | Detect missing values.                           |
-| [`Series.replace`](series.replace.md) | Replace values given in to\_replace with value.  |
+| [`Series.replace`](series.replace.md) | Replace values given in to_replace with value.   |
 
 ### Logical Comparison
 
@@ -106,11 +106,11 @@ description: One-dimensional ndarray with axis labels (including time series).
 
 ### Reshaping, sorting
 
-| [`Series.argSort`](series.argsort.md)         | Return the integer indices that would sort the Series values. |
-| --------------------------------------------- | ------------------------------------------------------------- |
-| [`Series.argMin`](series.argmin.md)           | Return int position of the smallest value in the Series.      |
-| [`Series.argMax`](series.argmax.md)           | Return int position of the largest value in the Series.       |
-| [`Series.sortValues`](series.sort\_values.md) | Sort by the values.                                           |
+| [`Series.argSort`](series.argsort.md)        | Return the integer indices that would sort the Series values. |
+| -------------------------------------------- | ------------------------------------------------------------- |
+| [`Series.argMin`](series.argmin.md)          | Return int position of the smallest value in the Series.      |
+| [`Series.argMax`](series.argmax.md)          | Return int position of the largest value in the Series.       |
+| [`Series.sortValues`](series.sort_values.md) | Sort by the values.                                           |
 
 ### Accessors
 
@@ -131,13 +131,13 @@ Danfo provides dtype-specific methods under various accessors. These are separat
 | -------------------------------------------------- | ----------------------------------------------------------------------- |
 | [`Series.dt.year`](series.dt.year.md)              | The year of the datetime.                                               |
 | [`Series.dt.month`](series.dt.month.md)            | Returns a numeric representation of the month. January=0 - December=11. |
-| [Series.dt.monthName](series.dt.month\_name.md)    |                                                                         |
+| [Series.dt.monthName](series.dt.month_name.md)     |                                                                         |
 | [`Series.dt.dayOfWeek`](series.dt.day.md)          | Returns the day of the week, in local time                              |
 | [`Series.dt.hour`](series.dt.hour.md)              | The hours of the datetime.                                              |
 | [`Series.dt.minute`](series.dt.minute.md)          | The minutes of the datetime.                                            |
 | [`Series.dt.second`](series.dt.second.md)          | The seconds of the datetime.                                            |
 | [`Series.dt.dayOfWeekName`](series.dt.weekdays.md) | Returns the name of the day, of the week, in local time                 |
-| [`Series.dt.dayOfMonth`](series.dt.month\_name.md) | Returns the day of the month, in local time                             |
+| [`Series.dt.dayOfMonth`](series.dt.month_name.md)  | Returns the day of the month, in local time                             |
 
 #### String handling
 
@@ -183,9 +183,8 @@ Danfo provides dtype-specific methods under various accessors. These are separat
 
 ### Serialization / IO / conversion
 
-|                                                       |                                              |
-| ----------------------------------------------------- | -------------------------------------------- |
-| [`Series.toCSV`](../dataframe/dataframe.to\_csv.md)   | Convert DataFrame or Series to CSV.          |
-| [`Series.toJSON`](../dataframe/dataframe.to\_json.md) | Convert DataFrame or Series to a JSON.       |
-| Series.toExcel                                        | Convert DataFrame or Series to an excel file |
-
+|                                                      |                                              |
+| ---------------------------------------------------- | -------------------------------------------- |
+| [`Series.toCSV`](../dataframe/dataframe.to_csv.md)   | Convert DataFrame or Series to CSV.          |
+| [`Series.toJSON`](../dataframe/dataframe.to_json.md) | Convert DataFrame or Series to a JSON.       |
+| Series.toExcel                                       | Convert DataFrame or Series to an excel file |

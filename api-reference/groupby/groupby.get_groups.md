@@ -2,13 +2,13 @@
 description: Obtain the data for each element of the groupby column
 ---
 
-# Groupby.get\_groups
+# Groupby.get_groups
 
-> danfo.Groupby.get\_groups(key) \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/groupby.js#L313)]
+> danfo.Groupby.getGroups(keys) \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/aggregators/groupby.ts#L524)]
 
 | Parameters | Type  | Description                   | default |
 | ---------- | ----- | ----------------------------- | ------- |
-| key        | Array | element of the groupby column |         |
+| keys       | Array | element of the groupby column |         |
 
 **Returns**: DataFrame
 
@@ -18,32 +18,32 @@ Group the dataframe by column A and obtain the group belonging to the values in 
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data ={'A': ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           'B': ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           'C': [1,3,2,4,5,2,6,7],
-           'D': [3,2,4,1,5,6,7,8]
-        }
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let df = new dfd.DataFrame(data)
+let df = new dfd.DataFrame(data);
 
+let grp = df.groupby(["A"]);
 
-let grp = df.groupby(["A"])
+grp.get_groups(["foo"]).print();
 
-grp.get_groups(["foo"]).print()
-
-grp.get_groups(["bar"]).print()
+grp.get_groups(["bar"]).print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ```
 //get groups for key "foo"
- Shape: (5,4) 
+ Shape: (5,4)
 
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ A                 │ B                 │ C                 │ D                 ║
@@ -61,7 +61,7 @@ grp.get_groups(["bar"]).print()
 
 //get groups for key "bar"
 
- Shape: (3,4) 
+ Shape: (3,4)
 
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ A                 │ B                 │ C                 │ D                 ║
@@ -74,30 +74,30 @@ grp.get_groups(["bar"]).print()
 ╚═══╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
 
-Group dataframe by two columns and obtain their groups. Since the dataframe is grouped by two columns we most specify two keys in the get\_groups belonging to these two columns
+Group dataframe by two columns and obtain their groups. Since the dataframe is grouped by two columns we most specify two keys in the get_groups belonging to these two columns
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data ={'A': ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           'B': ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           'C': [1,3,2,4,5,2,6,7],
-           'D': [3,2,4,1,5,6,7,8]
-        }
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let df = new dfd.DataFrame(data)
+let df = new dfd.DataFrame(data);
 
+let grp = df.groupby(["A", "B"]);
 
-let grp = df.groupby(["A","B"])
+grp.get_groups(["foo", "one"]).print();
 
-grp.get_groups(["foo","one"]).print()
-
-grp.get_groups(["bar","one"]).print()
+grp.get_groups(["bar", "one"]).print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -105,7 +105,7 @@ grp.get_groups(["bar","one"]).print()
 //get_groups(["foo","one"]
 
 
- Shape: (2,4) 
+ Shape: (2,4)
 
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ A                 │ B                 │ C                 │ D                 ║
@@ -118,7 +118,7 @@ grp.get_groups(["bar","one"]).print()
 //get_groups(["bar","one"])
 
 
- Shape: (1,4) 
+ Shape: (1,4)
 
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ A                 │ B                 │ C                 │ D                 ║

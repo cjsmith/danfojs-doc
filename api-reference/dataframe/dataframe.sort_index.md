@@ -4,7 +4,7 @@ description: Sort DataFrame by index
 
 # DataFrame.sortIndex
 
-DataFrame.sortIndex(options) \[[source](https://github.com/opensource9ja/danfojs/blob/e25010c26d9c423412613d820015a48ad03d5c6d/danfojs-node/src/core/frame.js#L2094)]
+DataFrame.sortIndex(options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L3055)]
 
 | Parameters | Type   | Description                                                                                                                                                                             | Default                                      |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
@@ -20,30 +20,40 @@ DataFrame.sortIndex(options) \[[source](https://github.com/opensource9ja/danfojs
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = [[0, 2, 4, "b"],
-            [360, 180, 360, "a"],
-            [2, 4, 6, "c"]]
+let data = [
+  [0, 2, 4, "b"],
+  [360, 180, 360, "a"],
+  [2, 4, 6, "c"],
+];
 
-let df = new dfd.DataFrame(data, { "columns": ["col1", "col2", "col3", "col4"],
-                           index: ["b", "a", "c"] })
-df.print()
+let df = new dfd.DataFrame(data, {
+  columns: ["col1", "col2", "col3", "col4"],
+  index: ["b", "a", "c"],
+});
+df.print();
 
-let df2 = df.sortIndex({ ascending: false })
-df2.print()
+let df2 = df.sortIndex({ ascending: false });
+df2.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ col1              │ col2              │ col3              │ col4              ║
@@ -68,7 +78,8 @@ df2.print()
 ║ a │ 360               │ 180               │ 360               │ a                 ║
 ╚═══╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
-***
+---

@@ -4,7 +4,7 @@ description: Sort a Dataframe in ascending or descending order by a specified co
 
 # DataFrame.sortValues
 
-danfo.DataFrame.**sortValues**(by, options) \[[source](https://github.com/opensource9ja/danfojs/blob/cf5c7ae3a009458e61eedd18d9c9b5b6b10d5276/danfojs/src/core/frame.js#L125)]
+danfo.DataFrame.**sortValues**(by, options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L2350)]
 
 | Parameters | Type   | Description                                                                                                                                                                                                              | Default                                                                                  |
 | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
@@ -17,30 +17,35 @@ danfo.DataFrame.**sortValues**(by, options) \[[source](https://github.com/openso
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
 let data = {
-    "A": [-20, 30, 47.3],
-    "B": [34, 5, 6],
-    "C": [20, 3, 30]
-}
+  A: [-20, 30, 47.3],
+  B: [34, 5, 6],
+  C: [20, 3, 30],
+};
 
-
-let df = new dfd.DataFrame(data)
-df.sortValues("C", { inplace: true })
-df.print()
+let df = new dfd.DataFrame(data);
+df.sortValues("C", { inplace: true });
+df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -52,6 +57,7 @@ df.print()
 ║ 2          │ 47.3              │ 6                 │ 30                ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -59,29 +65,31 @@ df.print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = { "A": [-20, 30, 47.3],
-             "B": [34, 5, 6],
-             "C": [20, 3, 30] }
+let data = { A: [-20, 30, 47.3], B: [34, 5, 6], C: [20, 3, 30] };
 
-
-
-let df = new dfd.DataFrame(data)
-df.sortValues("C", { ascending: false, inplace: true })
-df.print()
+let df = new dfd.DataFrame(data);
+df.sortValues("C", { ascending: false, inplace: true });
+df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -93,5 +101,6 @@ df.print()
 ║ 1          │ 30                │ 5                 │ 3                 ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}

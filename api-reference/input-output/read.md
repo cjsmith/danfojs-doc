@@ -4,9 +4,9 @@ description: >-
   specification.
 ---
 
-# read
+# read NOTE: THIS FUNCTION HAS BEEN REMOVED - See [this commit](https://github.com/javascriptdata/danfojs/commit/2a0614380edc74dc3cbe481f7c5674d182af92dd)
 
-> danfo.**read**\(source, configs\) [\[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/io/reader.js#L21)\]
+> danfo.**read**\(source, configs\)
 
 <table>
   <thead>
@@ -59,17 +59,19 @@ The **read** function uses [frictionless.js](https://github.com/frictionlessdata
 
 {% tabs %}
 {% tab title="Node.js" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
 async function load_data() {
-    let df = await dfd.read("file.csv")
-    let sample = await df.sample(10)
-    sample.print()
+  let df = await dfd.read("file.csv");
+  let sample = await df.sample(10);
+  sample.print();
 }
 
-load_data()
+load_data();
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -79,16 +81,20 @@ By specifying a valid URL, you can load CSV/EXCEL file:
 
 {% tabs %}
 {% tab title="Node.js" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
 async function load_data() {
- let df = await dfd.read("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv")
- df.head().print()
+  let df = await dfd.read(
+    "https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv"
+  );
+  df.head().print();
 }
 
-load_data()
+load_data();
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,13 +102,14 @@ load_data()
 
 You can load data from a frictionless data package [descriptor](https://specs.frictionlessdata.io/data-package/#descriptor). A data package descriptor is a central file in a Data Package. It is a JSON file that provides:
 
-* General metadata such as the package’s title, license, publisher etc
-* A list of the data “resources” that make up the package including their location on disk or online and other relevant information \(including, possibly, schema information about these data resources in a structured form\)
+- General metadata such as the package’s title, license, publisher etc
+- A list of the data “resources” that make up the package including their location on disk or online and other relevant information \(including, possibly, schema information about these data resources in a structured form\)
 
-For instance, in the example below, we load the first resource in the [Natural Gas dataset](https://datahub.io/core/natural-gas) from datahub.io. 
+For instance, in the example below, we load the first resource in the [Natural Gas dataset](https://datahub.io/core/natural-gas) from datahub.io.
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const dfd = require("danfojs-node")
 
@@ -115,6 +122,7 @@ async function load_data() {
 
 load_data()
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -133,6 +141,3 @@ load_data()
 ║ 4 │ 1997-01-13        │ 4                 ║
 ╚═══╧═══════════════════╧═══════════════════╝
 ```
-
-
-

@@ -4,7 +4,7 @@ description: Count the occurrence of values in columns per groups
 
 # Groupby.count
 
-> danfo.Groupby.count()      \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/groupby.js#L249)]
+> danfo.Groupby.count() \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/aggregators/groupby.ts#L432)]
 
 **Parameters**: None
 
@@ -16,25 +16,24 @@ Obtain the number of rows per groups
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let data ={A: ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           B: ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           C: [1,3,2,4,5,2,6,7],
-           D: [3,2,4,1,5,6,7,8]
-}
+let df = new dfd.DataFrame(data);
 
-let df = new dfd.DataFrame(data)
-
-
-let grp = df.groupby(["A"])
-let grpColumnC = grp.col(["C"])
-grpColumnC.count().print()
+let grp = df.groupby(["A"]);
+let grpColumnC = grp.col(["C"]);
+grpColumnC.count().print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -53,29 +52,29 @@ Obtain the count for two columns for each group, group by one column
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let data ={A: ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           B: ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           C: [1,3,2,4,5,2,6,7],
-           D: [3,2,4,1,5,6,7,8]
-}
+let df = new dfd.DataFrame(data);
 
-let df = new dfd.DataFrame(data)
+let grp = df.groupby(["A"]);
 
-let grp = df.groupby(["A"])
-
-grp.col(["C","D"]).count().print()
+grp.col(["C", "D"]).count().print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ```
-  Shape: (2,3) 
+  Shape: (2,3)
 
 ╔═══╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║   │ A                 │ C_count           │ D_count           ║
@@ -90,24 +89,24 @@ Obtain the count for all columns for each group, group by one column
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let data ={A: ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           B: ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           C: [1,3,2,4,5,2,6,7],
-           D: [3,2,4,1,5,6,7,8]
-}
+let df = new dfd.DataFrame(data);
 
-let df = new dfd.DataFrame(data)
+let grp = df.groupby(["A"]);
 
-let grp = df.groupby(["A"])
-
-grp.count().print()
+grp.count().print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -126,24 +125,23 @@ Obtain the count for a column for each group, group by two columns
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let data ={A: ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           B: ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           C: [1,3,2,4,5,2,6,7],
-           D: [3,2,4,1,5,6,7,8]
-}
+let df = new dfd.DataFrame(data);
 
-let df = new dfd.DataFrame(data)
-
-let grp = df.groupby(["A","B"])
-grp.col(["C"]).count().print()
-
+let grp = df.groupby(["A", "B"]);
+grp.col(["C"]).count().print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -171,23 +169,23 @@ Obtain the count for two columns for each group, group by two columns
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
+let data = {
+  A: ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+  B: ["one", "one", "two", "three", "two", "two", "one", "three"],
+  C: [1, 3, 2, 4, 5, 2, 6, 7],
+  D: [3, 2, 4, 1, 5, 6, 7, 8],
+};
 
-let data ={A: ['foo', 'bar', 'foo', 'bar',
-                'foo', 'bar', 'foo', 'foo'],
-           B: ['one', 'one', 'two', 'three',
-                'two', 'two', 'one', 'three'],
-           C: [1,3,2,4,5,2,6,7],
-           D: [3,2,4,1,5,6,7,8]
-}
+let df = new dfd.DataFrame(data);
 
-let df = new dfd.DataFrame(data)
-
-let grp = df.groupby(["A","B"])
-grp.col(["C","D"]).count().print()
+let grp = df.groupby(["A", "B"]);
+grp.col(["C", "D"]).count().print();
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -211,4 +209,4 @@ grp.col(["C","D"]).count().print()
 
 ```
 
-****
+---

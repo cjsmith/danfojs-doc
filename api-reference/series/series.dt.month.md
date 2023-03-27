@@ -4,7 +4,7 @@ description: Obtain the month in a date time series
 
 # Series.dt.month
 
-> danfo.Series.dt.**month**() \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/timeseries.js#L193)]
+> danfo.Series.dt.**month**() \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/datetime.ts#L62)]
 
 **Parameters**: None
 
@@ -14,19 +14,28 @@ description: Obtain the month in a date time series
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = new dfd.dateRange({"start":'2016-7-31', "end":'2016-12-08', freq:"M"})
-let sf = new dfd.Series(data)
+let data = new dfd.dateRange({
+  start: "2016-7-31",
+  end: "2016-12-08",
+  freq: "M",
+});
+let sf = new dfd.Series(data);
 
-sf.dt.month().print()
+sf.dt.month().print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 

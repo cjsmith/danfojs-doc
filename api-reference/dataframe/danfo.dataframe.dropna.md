@@ -4,7 +4,7 @@ description: Remove missing values (NaNs, undefined, null) for DataFrame
 
 # DataFrame.dropNa
 
-danfo.DataFrame.**dropNa**(axis, options) \[[source](https://github.com/opensource9ja/danfojs/blob/3398c2f540c16ac95599a05b6f2db4eff8a258c9/danfojs/src/core/frame.js#L1430)]
+danfo.DataFrame.**dropNa**(axis, options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L1833)]
 
 | Parameters | Type   | Description                                                                                        | Default              |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------- | -------------------- |
@@ -17,28 +17,39 @@ danfo.DataFrame.**dropNa**(axis, options) \[[source](https://github.com/opensour
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = [[1, 2, 3], [NaN, 5, 6], [NaN, 30, 40], [39, NaN, 78]]
-let cols = ["A", "B", "C"]
-let df = new dfd.DataFrame(data, { columns: cols })
+let data = [
+  [1, 2, 3],
+  [NaN, 5, 6],
+  [NaN, 30, 40],
+  [39, NaN, 78],
+];
+let cols = ["A", "B", "C"];
+let df = new dfd.DataFrame(data, { columns: cols });
 
-df.print()
+df.print();
 
-let df_drop = df.dropNa({ axis: 0 })
-df_drop.print()
+let df_drop = df.dropNa({ axis: 0 });
+df_drop.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -64,6 +75,7 @@ df_drop.print()
 ║ 3          │ 78                ║
 ╚════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -71,28 +83,39 @@ df_drop.print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = [[1, 2, 3], [NaN, 5, 6], [NaN, 30, 40], [39, NaN, 78]]
-let cols = ["A", "B", "C"]
-let df = new dfd.DataFrame(data, { columns: cols })
+let data = [
+  [1, 2, 3],
+  [NaN, 5, 6],
+  [NaN, 30, 40],
+  [39, NaN, 78],
+];
+let cols = ["A", "B", "C"];
+let df = new dfd.DataFrame(data, { columns: cols });
 
-df.print()
+df.print();
 
-df.dropNa({ axis: 1, inplace: true })
-df.print()
+df.dropNa({ axis: 1, inplace: true });
+df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -112,5 +135,6 @@ df.print()
 ║ 0          │ 1                 │ 2                 │ 3                 ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}

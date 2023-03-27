@@ -20,26 +20,29 @@ The **streamJSON** function streams a JSON file from a local or remote location 
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
-const path = require("path")
+const dfd = require("danfojs-node");
+const path = require("path");
 
 const filePath = path.join(process.cwd(), "raw_data", "book_small.json");
 
 dfd.streamJSON(filePath, (df) => {
-    if (df) {
-        // Do any processing here
-        df.print();
-    }
+  if (df) {
+    // Do any processing here
+    df.print();
+  }
 });
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
-//Showing the last rows 
+//Showing the last rows
 ...
 
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
@@ -54,6 +57,7 @@ dfd.streamJSON(filePath, (df) => {
 ║ 11         │ 33288638          │ Wait for It       │ https://s.gr-as…  │ Mariana Zapata    ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -61,28 +65,32 @@ dfd.streamJSON(filePath, (df) => {
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
-const path = require("path")
 
-const remoteFile = "https://raw.githubusercontent.com/opensource9ja/danfojs/dev/danfojs-node/tests/samples/book.json"
+```javascript
+const dfd = require("danfojs-node");
+const path = require("path");
+
+const remoteFile =
+  "https://raw.githubusercontent.com/javascriptdata/danfojs/dev/danfojs-node/tests/samples/book.json";
 
 const callback = (df) => {
-    //Perform any processing here
-    if (df) {
-        df.print();
-    }
-}
+  //Perform any processing here
+  if (df) {
+    df.print();
+  }
+};
 
-dfd.streamJSON(remoteFile, callback, { header: true })
+dfd.streamJSON(remoteFile, callback, { header: true });
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
-//Showing a few rows 
+//Showing a few rows
 ...
 
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
@@ -97,5 +105,6 @@ dfd.streamJSON(remoteFile, callback, { header: true })
 ║ 11         │ 33288638          │ Wait for It       │ https://s.gr-as…  │ Mariana Zapata    ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}

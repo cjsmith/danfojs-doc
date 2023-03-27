@@ -4,7 +4,7 @@ description: Obtain the day of the month
 
 # Series.dt.dayOfMonth
 
-> danfo.Series.dt.dayOfMonth() \[[source](https://github.com/opensource9ja/danfojs/blob/master/danfojs/src/core/timeseries.js#L268)]
+> danfo.Series.dt.dayOfMonth() \[[source](https://github.com/javascriptdata/danfojs/blob/master/src/danfojs-base/core/datetime.ts#L170)]
 
 **Parameters:** None
 
@@ -14,26 +14,32 @@ description: Obtain the day of the month
 
 {% tabs %}
 {% tab title="Node" %}
-```javascript
-const dfd = require("danfojs-node")
 
-let data = new dfd.dateRange({"start":"2000-01-01", period:4, freq:"D"})
-let sf = new dfd.Series(data)
+```javascript
+const dfd = require("danfojs-node");
+
+let data = new dfd.dateRange({ start: "2000-01-01", period: 4, freq: "D" });
+let sf = new dfd.Series(data);
 //print series
-sf.print()
+sf.print();
 //print monthdays
-sf.dt.dayOfMonth().print()
+sf.dt.dayOfMonth().print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔═══╤══════════════════════╗
 ║ 0 │ 1/1/2000, 1:00:00 AM ║
@@ -51,5 +57,6 @@ sf.dt.dayOfMonth().print()
 ║ 2 │ 3 ║
 ╚═══╧═══╝
 ```
+
 {% endtab %}
 {% endtabs %}

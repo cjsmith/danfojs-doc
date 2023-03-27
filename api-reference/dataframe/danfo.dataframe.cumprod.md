@@ -4,7 +4,7 @@ description: Return cumulative product over a DataFrame or Series axis.
 
 # DataFrame.cumProd
 
-danfo.DataFrame.**cumProd**(options) \[[source](https://github.com/opensource9ja/danfojs/blob/3398c2f540c16ac95599a05b6f2db4eff8a258c9/danfojs/src/core/frame.js#L706)]
+danfo.DataFrame.**cumProd**(options) \[[source](https://github.com/javascriptdata/danfojs/blob/dev/src/danfojs-base/core/frame.ts#L1625)]
 
 | Parameters | Type   | Description                                                                                                                                                                    | Default                   |
 | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
@@ -16,27 +16,38 @@ danfo.DataFrame.**cumProd**(options) \[[source](https://github.com/opensource9ja
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = [[11, 20, 3], [1, 15, 6], [2, 30, 40], [2, 89, 78]]
-let cols = ["A", "B", "C"]
+let data = [
+  [11, 20, 3],
+  [1, 15, 6],
+  [2, 30, 40],
+  [2, 89, 78],
+];
+let cols = ["A", "B", "C"];
 
-let df = new dfd.DataFrame(data, { columns: cols })
-let new_df = df.cumProd()
+let df = new dfd.DataFrame(data, { columns: cols });
+let new_df = df.cumProd();
 
-new_df.print()
+new_df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -50,6 +61,7 @@ new_df.print()
 ║ 3          │ 2                 │ 178               │ 13884             ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -57,27 +69,38 @@ new_df.print()
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
-const dfd = require("danfojs-node")
+const dfd = require("danfojs-node");
 
-let data = [[11, 20, 3], [1, 15, 6], [2, 30, 40], [2, 89, 78]]
-let cols = ["A", "B", "C"]
+let data = [
+  [11, 20, 3],
+  [1, 15, 6],
+  [2, 30, 40],
+  [2, 89, 78],
+];
+let cols = ["A", "B", "C"];
 
-let df = new dfd.DataFrame(data, { columns: cols })
-let new_df = df.cumProd({ axis: 1 })
+let df = new dfd.DataFrame(data, { columns: cols });
+let new_df = df.cumProd({ axis: 1 });
 
-new_df.print()
+new_df.print();
 ```
+
 {% endtab %}
 
 {% tab title="Browser" %}
+
 ```
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
 {% tabs %}
 {% tab title="Output" %}
+
 ```
 ╔════════════╤═══════════════════╤═══════════════════╤═══════════════════╗
 ║            │ A                 │ B                 │ C                 ║
@@ -91,5 +114,6 @@ new_df.print()
 ║ 3          │ 2                 │ 178               │ 13884             ║
 ╚════════════╧═══════════════════╧═══════════════════╧═══════════════════╝
 ```
+
 {% endtab %}
 {% endtabs %}
